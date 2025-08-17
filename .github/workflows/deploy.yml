@@ -13,6 +13,8 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages  #
 
     steps:
       - name: Checkout repository
@@ -22,10 +24,9 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Upload static site to artifact
-        uses: actions/upload-pages-artifact@v3.0.1  
-
+        uses: actions/upload-pages-artifact@v3.0.1
         with:
-          path: '.' 
+          path: '.'  
 
       - name: Deploy to GitHub Pages
         id: deployment
